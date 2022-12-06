@@ -2,7 +2,8 @@ class PrintWay
     def to_json(indent=0, waypoint)
         jsonString = '{"type": "Feature",'
         # if name is not nil or type is not nil
-        jsonString += '"geometry": {"type": "Point","coordinates": ' + "[#{waypoint.lon},#{waypoint.lat}"
+        jsonString += '"geometry": {"type": "Point","coordinates": ' \
+                      + "[#{waypoint.lon},#{waypoint.lat}"
     
         if waypoint.ele != nil
           jsonString += ",#{waypoint.ele}"

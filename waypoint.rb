@@ -1,5 +1,3 @@
-
-
 class Waypoint
 attr_reader :lat, :lon, :ele, :name, :type, :printer
 

@@ -22,4 +22,4 @@ class World
     
         stringOut + "]}"
       end
-    end
+end
