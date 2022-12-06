@@ -35,6 +35,7 @@ class TestGis < Test::Unit::TestCase
       Point.new(-121, 45.5),
       Point.new(-122, 45.5),
     ])
+    
     printer = PrintTrack.new()
     t = Track.new([ts1, ts2], "track 1", printer)
     expected = JSON.parse('{"type": "Feature", "properties": {"title": "track 1"},"geometry": {"type": "MultiLineString","coordinates": [[[-122,45],[-122,46],[-121,46]],[[-121,45],[-121,46]]]}}')
