@@ -7,4 +7,5 @@ class Point
       @lat = lat
       @ele = ele
     end
-  end
+
+end

@@ -1,25 +1,30 @@
 class World
+
     def initialize(name, points)
       @name = name
       @features = points
     end
-      def add_feature(f)
-        @features.append(t)
-      end
     
-      def to_geojson(indent=0)
+    def add_feature(f)
+      @features.append(t)
+    end
     
-        # Write stuff
-        stringOut = '{"type": "FeatureCollection","features": ['
+    def to_geojson(indent=0)
     
-        @features.each_with_index do |f,i|
-          if i != 0
-            stringOut +=","
-          end
+      # Write stuff
+      stringOut = '{"type": "FeatureCollection","features": ['
     
-            stringOut += f.to_json    
+      @features.each_with_index do |f,i|
+
+        if i != 0
+          stringOut +=","
         end
     
-        stringOut + "]}"
+          stringOut += f.to_json
+
       end
+    
+      stringOut + "]}"
+    end
+
 end

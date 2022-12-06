@@ -5,7 +5,7 @@ require 'test/unit'
 class TestGis < Test::Unit::TestCase
 
   def test_waypoints
-    printer = PrintWay.new()
+    printer = WayToJSON.new()
     w = Waypoint.new(-121.5, 45.5, 30, "home", "flag", printer)
     expected = JSON.parse('{"type": "Feature","properties": {"title": "home","icon": "flag"},"geometry": {"type": "Point","coordinates": [-121.5,45.5,30]}}')
     result = JSON.parse(w.to_json)
@@ -36,7 +36,7 @@ class TestGis < Test::Unit::TestCase
       Point.new(-122, 45.5),
     ])
     
-    printer = PrintTrack.new()
+    printer = TrackToJSON.new
     t = Track.new([ts1, ts2], "track 1", printer)
     expected = JSON.parse('{"type": "Feature", "properties": {"title": "track 1"},"geometry": {"type": "MultiLineString","coordinates": [[[-122,45],[-122,46],[-121,46]],[[-121,45],[-121,46]]]}}')
     result = JSON.parse(t.to_json)
@@ -49,7 +49,7 @@ class TestGis < Test::Unit::TestCase
   end
 
   def test_world
-    printer = PrintWay.new()
+    printer = WayToJSON.new()
     w = Waypoint.new(-121.5, 45.5, 30, "home", "flag", printer)
     w2 = Waypoint.new(-121.5, 45.6, nil, "store", "dot", printer)
     ts1 = TrackSegment.new([
@@ -66,7 +66,7 @@ class TestGis < Test::Unit::TestCase
       Point.new(-121, 45.5),
       Point.new(-122, 45.5),
     ])
-    printer = PrintTrack.new()
+    printer = TrackToJSON.new
     t = Track.new([ts1, ts2], "track 1", printer)
     t2 = Track.new([ts3], "track 2", printer)
 
